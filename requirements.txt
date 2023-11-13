@@ -1,0 +1,4 @@
+openai
+langchain
+streamlit
+streamlit-option-menu
