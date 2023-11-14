@@ -1,6 +1,11 @@
 import streamlit as st
 from streamlit_option_menu import option_menu
-from components import home, refactor_page, style_page, test_page, lang_page
+from components import (
+    home,
+    refactor_page,
+    style_page,
+    test_page, lang_page,
+    code_documentation_page)
 
 st.set_page_config(
     page_title="CodeCraft GPT: A Comprehensive Code Enhancement Platform",
@@ -20,8 +25,8 @@ if openai_api_key and openai_api_key.startswith("sk-") and len(openai_api_key) >
     with st.sidebar:
         selected = option_menu(
             menu_title="CodeCraftGPT",
-            options=["Home", "RefactorRite", "StyleSculpt", "TestGenius", "LangLink"],
-            icons=['house', 'gear', 'palette', 'clipboard2-pulse', 'code-slash'],
+            options=["Home", "RefactorRite", "StyleSculpt", "TestGenius", "LangLink", "CodeDocGenius" ],
+            icons=['house', 'gear', 'palette', 'clipboard2-pulse', 'code-slash', 'file-text'],
             default_index=0
         )
 
@@ -33,5 +38,7 @@ if openai_api_key and openai_api_key.startswith("sk-") and len(openai_api_key) >
         test_page.show_test_page(openai_api_key)
     elif selected == "LangLink":
         lang_page.show_lang_page(openai_api_key)
+    elif selected == "CodeDocGenius":
+        code_documentation_page.show_doc_page(openai_api_key)
     elif selected == "Home":
         home.show_home_page()
