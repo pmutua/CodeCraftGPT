@@ -13,7 +13,7 @@ from langchain.prompts.chat import (
     ChatPromptTemplate, HumanMessagePromptTemplate, SystemMessagePromptTemplate)
 from data.testing_libraries import TESTING_LIBRARIES
 
-def show_test_page(openai_api_key):
+def show_test_page():
     """
     Display the TestGenius page with a title, description, and code and test case input form.
 
@@ -43,7 +43,6 @@ def show_test_page(openai_api_key):
 
             chat = ChatOpenAI(
                 model="gpt-3.5-turbo-16k",
-                openai_api_key=openai_api_key,
                 temperature=0.7
             )
             system_template = f"""You are a software tester using {selected_testing_library}. Your task is to generate test functions and test cases for the given code snippet or functions."""

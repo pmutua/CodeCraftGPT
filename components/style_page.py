@@ -12,7 +12,7 @@ from langchain.chat_models import ChatOpenAI
 from langchain.prompts.chat import (
     ChatPromptTemplate, HumanMessagePromptTemplate, SystemMessagePromptTemplate)
 
-def show_style_page(openai_api_key):
+def show_style_page():
     """
     Display the StyleSculpt page with a title, description, and code input form.
 
@@ -38,7 +38,6 @@ def show_style_page(openai_api_key):
             
             chat = ChatOpenAI(
                 model="gpt-3.5-turbo-16k",
-                openai_api_key=openai_api_key,
                 temperature=0
             )
             system_template = """You are an AI assistant designed to provide real-time feedback on coding style and offer suggestions for improvement."""

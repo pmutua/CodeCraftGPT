@@ -10,7 +10,7 @@ from langchain.chat_models import ChatOpenAI
 from langchain.prompts.chat import (
     ChatPromptTemplate, HumanMessagePromptTemplate, SystemMessagePromptTemplate)
 
-def show_doc_page(openai_api_key):
+def show_doc_page():
     """
     Display the CodeDocGenius page with a title, description, and code input form.
 
@@ -33,7 +33,6 @@ def show_doc_page(openai_api_key):
             
             chat = ChatOpenAI(
                 model="gpt-3.5-turbo-16k",
-                openai_api_key=openai_api_key,
                 temperature=0.7
             )
             system_template = """You are a code documentation generator. Your task is to automatically generate documentation for the given code snippet."""

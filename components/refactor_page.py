@@ -13,7 +13,7 @@ from langchain.chat_models import ChatOpenAI
 from langchain.prompts.chat import (
     ChatPromptTemplate, HumanMessagePromptTemplate, SystemMessagePromptTemplate)
 
-def show_refactor_page(openai_api_key):
+def show_refactor_page():
     """
     Display the RefactorRite page with a title, description, and code input form.
 
@@ -45,7 +45,6 @@ def show_refactor_page(openai_api_key):
             # Initialize a ChatOpenAI instance for interacting with the GPT-3.5 model
             chat = ChatOpenAI(
                 model="gpt-3.5-turbo-16k",
-                openai_api_key=openai_api_key,
                 temperature=0
             )
 

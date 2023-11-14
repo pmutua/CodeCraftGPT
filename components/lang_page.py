@@ -16,7 +16,7 @@ from langchain.prompts.chat import (
 
 from data.programming_languages import PROGRAMMING_LANGUAGES
 
-def show_lang_page(openai_api_key):
+def show_lang_page():
     """
     Displays the LangLink page for code translation.
 
@@ -44,7 +44,6 @@ def show_lang_page(openai_api_key):
 
             chat = ChatOpenAI(
                 model="gpt-3.5-turbo-16k",
-                openai_api_key=openai_api_key,
                 temperature=0
             )
             system_template = """You are a code translator. Your task is to translate the given source code to {target_language}."""
