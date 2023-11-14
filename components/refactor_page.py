@@ -1,9 +1,17 @@
+"""
+RefactorRite - Code Refactoring Advisor
+
+Leverage AI-driven code analysis and automated refactoring to enhance code
+readability, boost performance, and improve maintainability. RefactorRite
+suggests intelligent refinements and even automates the refactoring process,
+allowing developers to focus on building robust software.
+"""
+
 import streamlit as st
 from langchain.chains import LLMChain
 from langchain.chat_models import ChatOpenAI
 from langchain.prompts.chat import (
     ChatPromptTemplate, HumanMessagePromptTemplate, SystemMessagePromptTemplate)
-
 
 def show_refactor_page(openai_api_key):
     """
@@ -32,7 +40,7 @@ def show_refactor_page(openai_api_key):
         submit_button = st.form_submit_button(label='Submit')
 
         if submit_button:
-            result = st.text(f"Refactoring code snippet... ✨")
+            st.text(f"Refactoring code snippet... ✨")
 
             # Initialize a ChatOpenAI instance for interacting with the GPT-3.5 model
             chat = ChatOpenAI(
@@ -61,4 +69,4 @@ def show_refactor_page(openai_api_key):
             result = chain.run(code_snippet=code_snippet)
 
             # Display the result of the refactoring suggestions
-            st.markdown(result)
+            st.text_area("Refactor suggestions", result, height=400)
