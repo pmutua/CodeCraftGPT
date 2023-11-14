@@ -35,7 +35,7 @@ Follow these steps to set up the project:
    `env/Scripts/activate`
 
    **Linux or MacOS:**
-   `source env/scripts/activate`
+   `source env/bin/activate`
 
 4. Install dependencies by running the command:
 
