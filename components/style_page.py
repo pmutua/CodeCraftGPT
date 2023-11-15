@@ -12,6 +12,7 @@ from langchain.chat_models import ChatOpenAI
 from langchain.prompts.chat import (
     ChatPromptTemplate, HumanMessagePromptTemplate, SystemMessagePromptTemplate)
 from llm.models import chat
+from prompts.code_style_check_prompt import create_coding_style_prompt
 
 def show_style_page():
     """
@@ -37,18 +38,7 @@ def show_style_page():
             
             st.text(f"Checking code style... ✨")
             
-            system_template = """You are an AI assistant designed to provide real-time feedback on coding style and offer suggestions for improvement."""
-            system_message_prompt = SystemMessagePromptTemplate.from_template(
-                system_template)
-            human_template = """Please provide feedback and suggestions for improving the coding style of the following code:
-
-    {refined_code}"""
-            human_message_prompt = HumanMessagePromptTemplate.from_template(
-                human_template)
-            chat_prompt = ChatPromptTemplate.from_messages(
-                [system_message_prompt, human_message_prompt]
-            )
-
+            chat_prompt = create_coding_style_prompt(refined_code)
             chain = LLMChain(llm=chat, prompt=chat_prompt)
             result = chain.run(refined_code=refined_code)
             st.markdown(result)

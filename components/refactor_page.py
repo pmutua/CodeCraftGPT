@@ -9,10 +9,8 @@ allowing developers to focus on building robust software.
 
 import streamlit as st
 from langchain.chains import LLMChain
-from langchain.chat_models import ChatOpenAI
-from langchain.prompts.chat import (
-    ChatPromptTemplate, HumanMessagePromptTemplate, SystemMessagePromptTemplate)
 from llm.models import chat
+from prompts.refactor_code_prompt import create_refactoring_prompt
 
 def show_refactor_page():
     """
@@ -43,19 +41,7 @@ def show_refactor_page():
         if submit_button:
             st.text(f"Refactoring code snippet... ✨")
 
-            # Define system and human message templates for the AI conversation
-            system_template = """You are an AI assistant specialized in code refactoring. Your task is to suggest intelligent refinements and automate the refactoring process for the given code snippet."""
-            system_message_prompt = SystemMessagePromptTemplate.from_template(
-                system_template)
-            human_template = """Please suggest intelligent refinements and automate the refactoring process for the following code snippet:
-
-            {code_snippet}"""
-            human_message_prompt = HumanMessagePromptTemplate.from_template(
-                human_template)
-            chat_prompt = ChatPromptTemplate.from_messages(
-                [system_message_prompt, human_message_prompt]
-            )
-
+            chat_prompt = create_refactoring_prompt(code_snippet)
             # Initialize an LLMChain for running the AI conversation
             chain = LLMChain(llm=chat, prompt=chat_prompt)
 

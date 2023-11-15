@@ -13,6 +13,7 @@ from langchain.prompts.chat import (
     ChatPromptTemplate, HumanMessagePromptTemplate, SystemMessagePromptTemplate)
 from data.testing_libraries import TESTING_LIBRARIES
 from llm.models import chat
+from prompts.generate_tests_prompt import create_test_generation_prompt
 
 def show_test_page():
     """
@@ -42,17 +43,7 @@ def show_test_page():
         if submit_button:
             st.text(f"Creating Tests... ✨")
 
-            system_template = f"""You are a software tester using {selected_testing_library}. Your task is to generate test functions and test cases for the given code snippet or functions."""
-            system_message_prompt = SystemMessagePromptTemplate.from_template(
-                system_template)
-            human_template = f"""Please generate test functions and test cases for the following code snippet using {selected_testing_library}
-
-    {code_snippet}"""
-            human_message_prompt = HumanMessagePromptTemplate.from_template(
-                human_template)
-            chat_prompt = ChatPromptTemplate.from_messages(
-                [system_message_prompt, human_message_prompt]
-            )
+            chat_prompt = create_test_generation_prompt(selected_testing_library,code_snippet)
 
             chain = LLMChain(llm=chat, prompt=chat_prompt)
             result = chain.run(code_snippet=code_snippet)
