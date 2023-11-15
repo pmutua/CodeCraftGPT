@@ -10,6 +10,9 @@ from langchain.chat_models import ChatOpenAI
 from langchain.prompts.chat import (
     ChatPromptTemplate, HumanMessagePromptTemplate, SystemMessagePromptTemplate)
 
+from llm.models import chat
+from prompts.code_documentation_prompt import create_documentation_prompt
+
 def show_doc_page():
     """
     Display the CodeDocGenius page with a title, description, and code input form.
@@ -31,25 +34,7 @@ def show_doc_page():
             
             st.text(f"Generating documentation... ✨")
             
-            chat = ChatOpenAI(
-                model="gpt-3.5-turbo-16k",
-                temperature=0.7
-            )
-            system_template = """You are a code documentation generator. Your task is to automatically generate documentation for the given code snippet."""
-            system_message_prompt = SystemMessagePromptTemplate.from_template(
-                system_template)
-            human_template = """Please automatically generate documentation for the following code snippet:
-
-            {code_snippet}
-            
-            And provide the modified code with the generated documentation.
-            """
-            human_message_prompt = HumanMessagePromptTemplate.from_template(
-                human_template)
-            chat_prompt = ChatPromptTemplate.from_messages(
-                [system_message_prompt, human_message_prompt]
-            )
-
+            chat_prompt = create_documentation_prompt(code_snippet)
             chain = LLMChain(llm=chat, prompt=chat_prompt)
             result = chain.run(code_snippet=code_snippet)
 
