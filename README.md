@@ -23,7 +23,7 @@ Before using this application, ensure you have the following prerequisites in pl
 5. **Streamlit-Option-Menu:**
     - streamlit-option-menu is a simple Streamlit component that allows users to select a single item from a list of options in a menu. It is similar in function to st. selectbox(), except that: It uses a simple static list to display the options instead of a dropdown. Learn about [Streamlit-Option-Menu](https://github.com/victoryhb/streamlit-option-menu#:~:text=streamlit%2Doption%2Dmenu-,streamlit%2Doption%2Dmenu%20is%20a%20simple%20Streamlit%20component%20that%20allows,options%20instead%20of%20a%20dropdown).
 
-## How to Set Up the Project
+## How to Set Up the Project Locally
 
 Follow these steps to set up the project:
 
@@ -41,7 +41,17 @@ Follow these steps to set up the project:
 
     `pip install -r requirements.txt`
 
-5. Run the application using the following command:
+5. In the root directory create a folder called **.streamlit** and inside the folder create a file called **secrets.toml**
+
+   Inside the  `secrets.toml` file add the OpenAI PI key following:
+
+    ```toml
+       # secrets.toml
+
+        OPENAI_API_KEY="<ADD your OPEN AI API KEY for local Development>"
+    ```
+
+6. Run the application using the following command:
 
     `streamlit run main.py`
 
