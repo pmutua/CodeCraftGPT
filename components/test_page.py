@@ -12,6 +12,7 @@ from langchain.chat_models import ChatOpenAI
 from langchain.prompts.chat import (
     ChatPromptTemplate, HumanMessagePromptTemplate, SystemMessagePromptTemplate)
 from data.testing_libraries import TESTING_LIBRARIES
+from llm.models import chat
 
 def show_test_page():
     """
@@ -41,10 +42,6 @@ def show_test_page():
         if submit_button:
             st.text(f"Creating Tests... ✨")
 
-            chat = ChatOpenAI(
-                model="gpt-3.5-turbo-16k",
-                temperature=0.7
-            )
             system_template = f"""You are a software tester using {selected_testing_library}. Your task is to generate test functions and test cases for the given code snippet or functions."""
             system_message_prompt = SystemMessagePromptTemplate.from_template(
                 system_template)

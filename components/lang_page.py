@@ -15,6 +15,7 @@ from langchain.prompts.chat import (
     SystemMessagePromptTemplate)
 
 from data.programming_languages import PROGRAMMING_LANGUAGES
+from llm.models import chat
 
 def show_lang_page():
     """
@@ -42,10 +43,6 @@ def show_lang_page():
             
             st.text(f"Translating code snippet to {target_language}................✨")
 
-            chat = ChatOpenAI(
-                model="gpt-3.5-turbo-16k",
-                temperature=0
-            )
             system_template = """You are a code translator. Your task is to translate the given source code to {target_language}."""
             system_message_prompt = SystemMessagePromptTemplate.from_template(
                 system_template)

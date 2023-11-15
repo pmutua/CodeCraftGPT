@@ -12,6 +12,7 @@ from langchain.chains import LLMChain
 from langchain.chat_models import ChatOpenAI
 from langchain.prompts.chat import (
     ChatPromptTemplate, HumanMessagePromptTemplate, SystemMessagePromptTemplate)
+from llm.models import chat
 
 def show_refactor_page():
     """
@@ -41,12 +42,6 @@ def show_refactor_page():
 
         if submit_button:
             st.text(f"Refactoring code snippet... ✨")
-
-            # Initialize a ChatOpenAI instance for interacting with the GPT-3.5 model
-            chat = ChatOpenAI(
-                model="gpt-3.5-turbo-16k",
-                temperature=0
-            )
 
             # Define system and human message templates for the AI conversation
             system_template = """You are an AI assistant specialized in code refactoring. Your task is to suggest intelligent refinements and automate the refactoring process for the given code snippet."""
