@@ -4,10 +4,9 @@ import streamlit as st
 
 
 def show_home_page():
+    st.image("logo.png", width=250)
     
     st.title('Welcome to CodeCraft GPT')
-
-    st.image("logo.png", width=250)
 
     st.write('CodeCraft AI is an all-in-one platform that revolutionizes the coding experience for developers.')
     
