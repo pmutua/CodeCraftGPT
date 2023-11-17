@@ -158,7 +158,6 @@ Link to any external documentation, tutorials, or related resources that can hel
 
 - **[Tusiime Ronald](https://github.com/tron66)**
   - Role: Developer
-  - [Brief description or bio]
 
 - **[Harrison Wachira](https://github.com/hnjogu)**
   - Role: Developer
