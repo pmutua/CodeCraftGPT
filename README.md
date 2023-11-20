@@ -3,6 +3,10 @@
 <br>
 CodeCraft GPT is an innovative, all-in-one platform harnessing the power of advanced Language Models (OpenAI). It seamlessly integrates four key components to elevate the coding experience for developers.
 
+## Demo 
+
+![CodeCraftGPT Demo](demo.gif)
+
 ## Prerequisites
 
 Before using this application, ensure you have the following prerequisites in place:
