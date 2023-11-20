@@ -12,19 +12,19 @@ CodeCraft GPT is an innovative, all-in-one platform harnessing the power of adva
 Before using this application, ensure you have the following prerequisites in place:
 
 1. **Python:**
-    - This project requires Python. Ensure you have Python installed on your system.
+    - This project requires **Python 3.8 >= 3.11.** Ensure you have Python installed on your system.
     - You can download Python from the [official Python website](https://www.python.org/downloads/).
-
+&nbsp;
 2. **OpenAI API Key:**
    - To access certain features and functionalities, you'll need a valid [OpenAI API key](https://platform.openai.com/api-keys).
    - If you don't have an API key, you can obtain one by following the instructions on the [OpenAI platform](https://platform.openai.com/signup).
-
+&nbsp;
 3. **LangChain:**
     - LangChain is a framework designed to simplify the creation of applications using large language models. As a language model integration framework, LangChain's use-cases largely overlap with those of language models in general, including document analysis and summarization, chatbots, and code analysis. Learn about [LangChain](https://python.langchain.com/).
-
+&nbsp;
 4. **Streamlit:**
     - Streamlit is a free and open-source framework to rapidly build and share beautiful machine learning and data science web apps. It is a Python-based library specifically designed for machine learning engineers. Learn about [Streamlit](https://streamlit.io/). [Installation requirements](https://docs.streamlit.io/library/get-started/installation)
-
+&nbsp;
 5. **Streamlit-Option-Menu:**
     - streamlit-option-menu is a simple Streamlit component that allows users to select a single item from a list of options in a menu. It is similar in function to st. selectbox(), except that: It uses a simple static list to display the options instead of a dropdown. Learn about [Streamlit-Option-Menu](https://github.com/victoryhb/streamlit-option-menu#:~:text=streamlit%2Doption%2Dmenu-,streamlit%2Doption%2Dmenu%20is%20a%20simple%20Streamlit%20component%20that%20allows,options%20instead%20of%20a%20dropdown).
 
@@ -35,20 +35,21 @@ Follow these steps to set up the project:
 1. Navigate to your workspace
 2. Create a virtual environment by running: `python -m venv env`
 3. Activate your virtual environment based on your operating system::
+   &nbsp;
+   **Windows:** `env/Scripts/activate`
 
-   **Windows:**
-   `env/Scripts/activate`
+    &nbsp;
 
-   **Linux or MacOS:**
-   `source env/bin/activate`
-
+   **Linux or MacOS:** `source env/bin/activate`
+    &nbsp;
 4. Install dependencies by running the command:
-
+    &nbsp;
     `pip install -r requirements.txt`
-
-5. In the root directory create a folder called **.streamlit** and inside the folder create a file called **secrets.toml**
-
-   Inside the  `secrets.toml` file add the OpenAI PI key following:
+    &nbsp;
+5. Inside the  [secrets.toml](./.streamlit/secrets.toml) file add your OpenAI API key:
+    &nbsp;
+   **Example**
+    &nbsp;
 
     ```toml
        # secrets.toml
@@ -57,40 +58,10 @@ Follow these steps to set up the project:
     ```
 
 6. Run the application using the following command:
-
+    &nbsp;
     `streamlit run main.py`
 
 Ensure you follow these steps to successfully set up and run the project. You're ready to explore the full capabilities of our AI-powered development tools.
-
-<!-- TODO refactor ## How to Use the Application
-
-Follow these steps to make the most of our AI-powered development tools:
-
-1. **RefactorRite (Code Refactoring Advisor) 💡:**
-   - Input your code snippets or files into RefactorRite.
-   - Review the intelligent suggestions for code improvements.
-   - Choose to manually apply refinements or let RefactorRite automate the process.
-
-2. **StyleSculpt (Code Style Checker) 🎨:**
-   - Upload your code files to StyleSculpt.
-   - Receive feedback on coding style and suggestions for enhancement.
-   - Implement the recommended changes to improve code quality.
-
-3. **TestGenius (Code Testing and Test Case Generation) 🧪:**
-   - Provide your code snippets or functions to TestGenius.
-   - Let TestGenius generate comprehensive test cases for your code.
-   - Incorporate the generated test cases into your testing suite.
-
-4. **LangLink (Code Translation and Cross-Language Compatibility) 🌐:**
-   - Copy and paste code from one programming language into LangLink.
-   - Select the target language for translation.
-   - Retrieve the translated code with ensured compatibility across languages.
-
-These simple instructions will guide you through the seamless utilization of our AI tools. If you have any questions or encounter issues, feel free to reach out to our support team. -->
-
-<!-- ## Configuration
-
-we will explain any configuration options or settings that users might need to adjust. [if any] -->
 
 ## Key Features
 
