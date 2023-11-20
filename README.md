@@ -34,11 +34,13 @@ Follow these steps to set up the project:
 
 1. Navigate to your workspace
 2. Create a virtual environment by running: `python -m venv env`
-3. Activate your virtual environment based on your operating system::
-   &nbsp;
+3. Activate your virtual environment based on your operating system:
+
+   <br>
+
    **Windows:** `env/Scripts/activate`
 
-    &nbsp;
+    <br>
 
    **Linux or MacOS:** `source env/bin/activate`
     &nbsp;
@@ -47,7 +49,6 @@ Follow these steps to set up the project:
     `pip install -r requirements.txt`
     &nbsp;
 5. Inside the  [secrets.toml](./.streamlit/secrets.toml) file add your OpenAI API key:
-    &nbsp;
 
     ```toml
        # secrets.toml
