@@ -48,8 +48,6 @@ Follow these steps to set up the project:
     &nbsp;
 5. Inside the  [secrets.toml](./.streamlit/secrets.toml) file add your OpenAI API key:
     &nbsp;
-   **Example**
-    &nbsp;
 
     ```toml
        # secrets.toml
