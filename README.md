@@ -36,14 +36,14 @@ Follow these steps to set up the project:
 2. Create a virtual environment by running: `python -m venv env`
 3. Activate your virtual environment based on your operating system:
 
-   <br>
+    ```shell
+    #Windows
+    env/Scripts/activate
 
-   **Windows:** `env/Scripts/activate`
+    #Linux or MacOS
+    source env/bin/activate
+    ```
 
-    <br>
-
-   **Linux or MacOS:** `source env/bin/activate`
-    &nbsp;
 4. Install dependencies by running the command:
     &nbsp;
     `pip install -r requirements.txt`
