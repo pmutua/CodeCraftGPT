@@ -21,5 +21,6 @@ CODE_STYLES = {
   "Elixir": "Credo Style Guide: Style guide for Elixir code using the Credo tool",
   "Lua": "LuaRocks Lua Style Guide: Style guide for Lua programming language",
   "Julia": "Julia Style Guide: Recommendations for writing Julia code",
-  "Shell": "Google Shell Style Guide: Style guide for writing shell scripts at Google"
+  "Shell": "Google Shell Style Guide: Style guide for writing shell scripts at Google",
+  "VB.net": "microsoft: microsoft based language"
 }

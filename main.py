@@ -6,7 +6,7 @@ from components import (
     refactor_page,
     style_page,
     test_page, lang_page,
-    code_documentation_page)
+    code_documentation_page, database_page)
 
 
 # Set OpenAI API key from Streamlit secret
@@ -22,8 +22,8 @@ st.set_page_config(
 with st.sidebar:
     selected = option_menu(
         menu_title="CodeCraftGPT",
-        options=["Home", "RefactorRite", "StyleSculpt", "TestGenius", "LangLink", "CodeDocGenius" ],
-        icons=['house', 'gear', 'palette', 'clipboard2-pulse', 'code-slash', 'file-text'],
+        options=["Home", "RefactorRite", "StyleSculpt", "TestGenius", "LangLink", "CodeDocGenius", "Database" ],
+        icons=['house', 'gear', 'palette', 'clipboard2-pulse', 'code-slash', 'file-text', 'database'],
         default_index=0
     )
 
@@ -37,5 +37,7 @@ elif selected == "LangLink":
     lang_page.show_lang_page()
 elif selected == "CodeDocGenius":
     code_documentation_page.show_doc_page()
+elif selected == "Database":
+    database_page.show_database_page()
 elif selected == "Home":
     home.show_home_page()
