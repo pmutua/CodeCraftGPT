@@ -34,18 +34,19 @@ def main():
             api_key=api_key
         )
 
-        selected = option_menu(
-            menu_title="CodeCraftGPT",
-            options=[
-                "Home", "RefactorRite", "StyleSculpt",
-                "TestGenius", "LangLink", "CodeDocGenius", "Database"
-            ],
-            icons=[
-                'house', 'gear', 'palette', 'clipboard2-pulse',
-                'code-slash', 'file-text', 'database'
-            ],
-            default_index=0
-        )
+        with st.sidebar:
+            selected = option_menu(
+                menu_title="CodeCraftGPT",
+                options=[
+                    "Home", "RefactorRite", "StyleSculpt",
+                    "TestGenius", "LangLink", "CodeDocGenius", "Database"
+                ],
+                icons=[
+                    'house', 'gear', 'palette', 'clipboard2-pulse',
+                    'code-slash', 'file-text', 'database'
+                ],
+                default_index=0
+            )
 
         # Dictionary containing functions without invoking them
         pages = {
