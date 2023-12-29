@@ -4,6 +4,7 @@ This part of the code show the AI part of database code.
 from typing import Type
 import streamlit as st
 from langchain.chains import LLMChain
+from langchain.chat_models import ChatOpenAI
 from data.database_System import Database_system
 from prompts.translate_code_prompt import create_translation_prompt
 
