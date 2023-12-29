@@ -5,17 +5,16 @@ Empowers developers to create reliable and comprehensive test suites effortlessl
 to generate test cases for code snippets, functions, or classes, fostering correctness and enhancing
 test coverage. This accelerates the development cycle while ensuring robust software quality.
 """
-
+from typing import Type
 import streamlit as st
 from langchain.chains import LLMChain
 from langchain.chat_models import ChatOpenAI
 from langchain.prompts.chat import (
     ChatPromptTemplate, HumanMessagePromptTemplate, SystemMessagePromptTemplate)
 from data.testing_libraries import TESTING_LIBRARIES
-from llm.models import chat
 from prompts.generate_tests_prompt import create_test_generation_prompt
 
-def show_test_page():
+def show_test_page(chat: Type[ChatOpenAI]):
     """
     Display the TestGenius page with a title, description, and code and test case input form.
 
