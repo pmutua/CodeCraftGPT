@@ -1,4 +1,3 @@
-import streamlit as st
 from streamlit_option_menu import option_menu
 from langchain.chat_models import ChatOpenAI
 from components import (
@@ -42,19 +41,20 @@ def main():
             default_index=0
         )
 
-        # Display pages based on selection
+        # Dictionary containing functions without invoking them
         pages = {
-            "RefactorRite": refactor_page.show_refactor_page(chat),
-            "StyleSculpt": style_page.show_style_page(chat),
-            "TestGenius": test_page.show_test_page(chat),
-            "LangLink": lang_page.show_lang_page(chat),
-            "CodeDocGenius": code_documentation_page.show_doc_page(chat),
-            "Database": database_page.show_database_page(chat),
+            "RefactorRite": refactor_page.show_refactor_page,
+            "StyleSculpt": style_page.show_style_page,
+            "TestGenius": test_page.show_test_page,
+            "LangLink": lang_page.show_lang_page,
+            "CodeDocGenius": code_documentation_page.show_doc_page,
+            "Database": database_page.show_database_page,
             "Home": home.show_home_page
         }
 
         if selected in pages:
-            pages[selected]()
+            # Call the function corresponding to the selected page
+            pages[selected](chat)  # Pass chat as argument to the function
         else:
             st.error("Page not found!")
 
