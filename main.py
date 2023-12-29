@@ -5,39 +5,56 @@ from components import (
     home,
     refactor_page,
     style_page,
-    test_page, lang_page,
-    code_documentation_page, database_page)
-
-
-# Set OpenAI API key from Streamlit secret
-os.environ["OPENAI_API_KEY"] = st.secrets["OPENAI_API_KEY"]
-
-st.set_page_config(
-    page_title="CodeCraft GPT: A Comprehensive Code Enhancement Platform",
-    page_icon="🚀",
-    layout="wide",
+    test_page,
+    lang_page,
+    code_documentation_page,
+    database_page
 )
 
+def set_openai_api_key():
+    api_key = st.text_input("Enter your OpenAI API key:")
+    if api_key:
+        os.environ["OPENAI_API_KEY"] = api_key
+    else:
+        st.warning("Please enter your OpenAI API key.")
 
-with st.sidebar:
-    selected = option_menu(
-        menu_title="CodeCraftGPT",
-        options=["Home", "RefactorRite", "StyleSculpt", "TestGenius", "LangLink", "CodeDocGenius", "Database" ],
-        icons=['house', 'gear', 'palette', 'clipboard2-pulse', 'code-slash', 'file-text', 'database'],
-        default_index=0
+def main():
+    st.set_page_config(
+        page_title="CodeCraft GPT: A Comprehensive Code Enhancement Platform",
+        page_icon="🚀",
+        layout="wide"
     )
 
-if selected == "RefactorRite":
-    refactor_page.show_refactor_page()
-elif selected == "StyleSculpt":
-    style_page.show_style_page()
-elif selected == "TestGenius":
-    test_page.show_test_page()
-elif selected == "LangLink":
-    lang_page.show_lang_page()
-elif selected == "CodeDocGenius":
-    code_documentation_page.show_doc_page()
-elif selected == "Database":
-    database_page.show_database_page()
-elif selected == "Home":
-    home.show_home_page()
+    set_openai_api_key()
+
+    with st.sidebar:
+        selected = option_menu(
+            menu_title="CodeCraftGPT",
+            options=[
+                "Home", "RefactorRite", "StyleSculpt", "TestGenius", 
+                "LangLink", "CodeDocGenius", "Database"
+            ],
+            icons=[
+                'house', 'gear', 'palette', 'clipboard2-pulse', 
+                'code-slash', 'file-text', 'database'
+            ],
+            default_index=0
+        )
+
+    pages = {
+        "RefactorRite": refactor_page.show_refactor_page,
+        "StyleSculpt": style_page.show_style_page,
+        "TestGenius": test_page.show_test_page,
+        "LangLink": lang_page.show_lang_page,
+        "CodeDocGenius": code_documentation_page.show_doc_page,
+        "Database": database_page.show_database_page,
+        "Home": home.show_home_page
+    }
+
+    if selected in pages:
+        pages[selected]()
+    else:
+        st.error("Page not found!")
+
+if __name__ == "__main__":
+    main()
