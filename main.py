@@ -20,7 +20,7 @@ def main():
     )
 
     st.sidebar.title("OpenAI API Key")
-    api_key = st.sidebar.text_input("Enter your OpenAI API key:")
+    api_key = st.sidebar.text_input("Enter your OpenAI API key:", type='password')
 
     if not api_key:
         # Content to show when API key is not entered
