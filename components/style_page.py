@@ -5,16 +5,15 @@ Ensure code quality and adherence to coding standards with StyleSculpt. This fea
 provides feedback on coding style, offering suggestions for improvement. By enforcing
 best practices, StyleSculpt enhances code quality and consistency.
 """
-
+from typing import Type
 import streamlit as st
 from langchain.chains import LLMChain
 from langchain.chat_models import ChatOpenAI
 from langchain.prompts.chat import (
     ChatPromptTemplate, HumanMessagePromptTemplate, SystemMessagePromptTemplate)
-from llm.models import chat
 from prompts.code_style_check_prompt import create_coding_style_prompt
 
-def show_style_page():
+def show_style_page(chat: Type[ChatOpenAI]):
     """
     Display the StyleSculpt page with a title, description, and code input form.
 
