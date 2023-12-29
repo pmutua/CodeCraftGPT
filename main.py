@@ -25,6 +25,9 @@ def main():
     if not api_key:
         # Content to show when API key is not entered
         st.warning("Please enter your OpenAI API key to access pages.")
+        st.markdown(
+            "If you don't have an **API key**, you can obtain one from the [OpenAI platform](https://platform.openai.com/api-keys)."
+        )
         home.show_home_page()
 
     else:
