@@ -37,11 +37,11 @@ def main():
         selected = option_menu(
             menu_title="CodeCraftGPT",
             options=[
-                "Home", "RefactorRite", "StyleSculpt", "TestGenius", 
-                "LangLink", "CodeDocGenius", "Database"
+                "Home", "RefactorRite", "StyleSculpt",
+                "TestGenius", "LangLink", "CodeDocGenius", "Database"
             ],
             icons=[
-                'house', 'gear', 'palette', 'clipboard2-pulse', 
+                'house', 'gear', 'palette', 'clipboard2-pulse',
                 'code-slash', 'file-text', 'database'
             ],
             default_index=0
@@ -60,7 +60,7 @@ def main():
 
         if selected in pages:
             # Call the function corresponding to the selected page
-            pages[selected](chat)  # Pass chat as an argument to the function
+            pages[selected](chat) if selected != "Home" else None
         else:
             st.error("Page not found!")
 
