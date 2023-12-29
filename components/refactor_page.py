@@ -6,13 +6,12 @@ readability, boost performance, and improve maintainability. RefactorRite
 suggests intelligent refinements and even automates the refactoring process,
 allowing developers to focus on building robust software.
 """
-
+from typing import Type
 import streamlit as st
 from langchain.chains import LLMChain
-from llm.models import chat
 from prompts.refactor_code_prompt import create_refactoring_prompt
 
-def show_refactor_page():
+def show_refactor_page(chat: Type[ChatOpenAI]):
     """
     Display the RefactorRite page with a title, description, and code input form.
 
