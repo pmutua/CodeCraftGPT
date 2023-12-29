@@ -25,22 +25,27 @@ def main():
         layout="wide"
     )
 
-    set_openai_api_key()
+    # Check if OpenAI API key is set
+    if "OPENAI_API_KEY" not in os.environ:
+        set_openai_api_key()
 
-    with st.sidebar:
-        selected = option_menu(
-            menu_title="CodeCraftGPT",
-            options=[
-                "Home", "RefactorRite", "StyleSculpt", "TestGenius", 
-                "LangLink", "CodeDocGenius", "Database"
-            ],
-            icons=[
-                'house', 'gear', 'palette', 'clipboard2-pulse', 
-                'code-slash', 'file-text', 'database'
-            ],
-            default_index=0
-        )
+    # Display sidebar only if API key is set
+    if "OPENAI_API_KEY" in os.environ:
+        with st.sidebar:
+            selected = option_menu(
+                menu_title="CodeCraftGPT",
+                options=[
+                    "Home", "RefactorRite", "StyleSculpt", "TestGenius", 
+                    "LangLink", "CodeDocGenius", "Database"
+                ],
+                icons=[
+                    'house', 'gear', 'palette', 'clipboard2-pulse', 
+                    'code-slash', 'file-text', 'database'
+                ],
+                default_index=0
+            )
 
+    # Display pages based on selection and API key availability
     pages = {
         "RefactorRite": refactor_page.show_refactor_page,
         "StyleSculpt": style_page.show_style_page,
@@ -51,10 +56,15 @@ def main():
         "Home": home.show_home_page
     }
 
-    if selected in pages:
-        pages[selected]()
+    if "OPENAI_API_KEY" not in os.environ:
+        st.warning("Please enter your OpenAI API key to access pages.")
+    elif "Home" not in pages or selected != "Home":
+        if selected in pages:
+            pages[selected]()
+        else:
+            st.error("Page not found!")
     else:
-        st.error("Page not found!")
+        st.warning("Please select a page from the sidebar.")
 
 if __name__ == "__main__":
     main()
