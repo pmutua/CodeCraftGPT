@@ -22,7 +22,12 @@ def main():
     st.sidebar.title("OpenAI API Key")
     api_key = st.sidebar.text_input("Enter your OpenAI API key:")
 
-    if api_key:
+    if not api_key:
+        # Content to show when API key is not entered
+        st.warning("Please enter your OpenAI API key to access pages.")
+        home.show_home_page()
+
+    else:
         chat = ChatOpenAI(
             model="gpt-3.5-turbo-16k",
             temperature=0,
