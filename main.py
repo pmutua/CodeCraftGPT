@@ -55,7 +55,7 @@ def main():
 
         if selected in pages:
             # Call the function corresponding to the selected page
-            pages[selected](chat)  # Pass chat as argument to the function
+            pages[selected]
         else:
             st.error("Page not found!")
 
