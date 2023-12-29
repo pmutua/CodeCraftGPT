@@ -20,7 +20,7 @@ def show_database_page(chat: Type[ChatOpenAI]):
     st.markdown('Database AI Tool ')
 
     # Append a unique identifier to the form key to make it unique
-    unique_key = "lang_form_" + str(hash(chat))  # Example of creating a unique key
+    unique_key = "lang_form_" + 'database'
     
     with st.form(key=unique_key):  # Use the unique key for the form
         source_code = st.text_area("Enter Your Question to Generate the Query")
