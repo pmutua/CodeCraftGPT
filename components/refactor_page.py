@@ -9,6 +9,7 @@ allowing developers to focus on building robust software.
 from typing import Type
 import streamlit as st
 from langchain.chains import LLMChain
+from langchain.chat_models import ChatOpenAI
 from prompts.refactor_code_prompt import create_refactoring_prompt
 
 def show_refactor_page(chat: Type[ChatOpenAI]):
