@@ -3,17 +3,15 @@ CodeDocGenius - Code Documentation Generator
 
 Automatically generates documentation for code snippets in any programming language.
 """
-
+from typing import Type
 import streamlit as st
 from langchain.chains import LLMChain
 from langchain.chat_models import ChatOpenAI
 from langchain.prompts.chat import (
     ChatPromptTemplate, HumanMessagePromptTemplate, SystemMessagePromptTemplate)
-
-from llm.models import chat
 from prompts.code_documentation_prompt import create_documentation_prompt
 
-def show_doc_page():
+def show_doc_page(chat: Type[ChatOpenAI]):
     """
     Display the CodeDocGenius page with a title, description, and code input form.
 
