@@ -8,6 +8,7 @@ and seamless transitions across different languages.
 from typing import Type
 import streamlit as st
 from langchain.chains import LLMChain
+from langchain.chat_models import ChatOpenAI
 from data.programming_languages import PROGRAMMING_LANGUAGES
 from prompts.translate_code_prompt import create_translation_prompt
 
