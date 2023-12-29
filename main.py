@@ -50,7 +50,7 @@ def main():
             "LangLink": lang_page.show_lang_page(chat),
             "CodeDocGenius": code_documentation_page.show_doc_page(chat),
             "Database": database_page.show_database_page(chat),
-            "Home": home.show_home_page
+            "Home": home.show_home_page()
         }
 
         if selected in pages:
