@@ -49,23 +49,20 @@ def main():
 
         # Dictionary containing functions without invoking them
         pages = {
-            "RefactorRite": refactor_page.show_refactor_page(chat),
-            "StyleSculpt": style_page.show_style_page(chat),
-            "TestGenius": test_page.show_test_page(chat),
-            "LangLink": lang_page.show_lang_page(chat),
-            "CodeDocGenius": code_documentation_page.show_doc_page(chat),
-            "Database": database_page.show_database_page(chat),
-            "Home": home.show_home_page()
+            "RefactorRite": refactor_page.show_refactor_page,
+            "StyleSculpt": style_page.show_style_page,
+            "TestGenius": test_page.show_test_page,
+            "LangLink": lang_page.show_lang_page,
+            "CodeDocGenius": code_documentation_page.show_doc_page,
+            "Database": database_page.show_database_page,
+            "Home": home.show_home_page  # Removed the () for immediate call
         }
 
         if selected in pages:
             # Call the function corresponding to the selected page
-            pages[selected]
+            pages[selected](chat)  # Pass chat as an argument to the function
         else:
             st.error("Page not found!")
-
-    else:
-        st.warning("Please enter your OpenAI API key to access pages.")
 
 if __name__ == "__main__":
     main()
