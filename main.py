@@ -1,5 +1,6 @@
 import streamlit as st
 from streamlit_option_menu import option_menu
+from langchain.chat_models import ChatOpenAI
 from components import (
     home,
     refactor_page,
@@ -10,11 +11,6 @@ from components import (
     database_page
 )
 
-class ChatOpenAI:
-    def __init__(self, model, temperature, api_key):
-        self.model = model
-        self.temperature = temperature
-        self.api_key = api_key
 
 def main():
     st.set_page_config(
