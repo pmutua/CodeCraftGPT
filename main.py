@@ -60,8 +60,11 @@ def main():
         }
 
         if selected in pages:
-            # Call the function corresponding to the selected page
-            pages[selected](chat) if selected != "Home" else None
+            if selected != "Home":
+                # Call the function corresponding to the selected page
+                pages[selected](chat)
+            else:
+                st.info("⚠️ Please select an option from the side menu to proceed.")
         else:
             st.error("Page not found!")
 
