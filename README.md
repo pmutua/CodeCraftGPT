@@ -48,15 +48,8 @@ Follow these steps to set up the project:
     &nbsp;
     `pip install -r requirements.txt`
     &nbsp;
-5. Inside the  [secrets.toml](./.streamlit/secrets.toml) file add your OpenAI API key:
 
-    ```toml
-       # secrets.toml
-
-        OPENAI_API_KEY="<ADD your OPEN AI API KEY for local Development>"
-    ```
-
-6. Run the application using the following command:
+5. Run the application using the following command:
     &nbsp;
     `streamlit run main.py`
 
